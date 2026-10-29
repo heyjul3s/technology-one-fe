@@ -1,3 +1,5 @@
+@import url('browserux.css');
+
 :root {
   --borderRadiusSmall: 4px;
   --borderRadiusMedium: 6px;
