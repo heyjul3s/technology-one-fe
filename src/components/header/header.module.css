@@ -1,0 +1,27 @@
+.header {
+  padding: var(--spacing-40) var(--spacing-16) 0;
+}
+
+.header-logo {
+  align-items: center;
+  border-radius: var(--borderRadiusSmall);
+  display: inline-flex;
+  min-height: 2.75rem;
+}
+
+.header-logo img {
+  display: block;
+  height: auto;
+  width: 10.188rem;
+}
+
+.header-logo:focus-visible {
+  outline: 2px solid var(--colorTextInverse);
+  outline-offset: 4px;
+}
+
+@media (width >= 75rem) {
+  .header {
+    padding: var(--spacing-20) var(--spacing-24) 0;
+  }
+}
