@@ -1,10 +1,27 @@
 @import url('browserux.css');
 
 :root {
+  /* Spacing in rem; suffixes represent pixels at a 16px root font size. */
+  --spacing-4: 0.25rem;
+  --spacing-8: 0.5rem;
+  --spacing-12: 0.75rem;
+  --spacing-16: 1rem;
+  --spacing-20: 1.25rem;
+  --spacing-24: 1.5rem;
+  --spacing-32: 2rem;
+  --spacing-40: 2.5rem;
+  --spacing-48: 3rem;
+  --spacing-52: 3.25rem;
+  --spacing-56: 3.5rem;
+  --spacing-64: 4rem;
+  --spacing-80: 5rem;
+  --spacing-96: 6rem;
+  --spacing-128: 8rem;
   --borderRadiusSmall: 4px;
   --borderRadiusMedium: 6px;
   --borderRadiusLarge: 8px;
   --colorTextDefault: #535353;
+  --colorTextError: #b42318;
   --colorTextInverse: #fff;
   --colorTextLink: #1272e4;
   --colorBackgroundDefault: #fff;
