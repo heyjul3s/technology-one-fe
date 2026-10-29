@@ -26,11 +26,14 @@
   "license": "ISC",
   "packageManager": "pnpm@12.15.0",
   "dependencies": {
+    "@hookform/resolvers": "6.0.0",
     "browserux.css": "5.0.1",
     "clsx": "2.1.1",
     "es-toolkit": "1.52.0",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "react-hook-form": "7.90.0",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
