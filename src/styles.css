@@ -1,6 +1,13 @@
 @import url('browserux.css');
 
 :root {
+  --fontFamilyBody: 'Outfit', sans-serif;
+  --fontFamilyDisplay: 'Bubblegum Sans', sans-serif;
+
+  /* bux-font-body and bux-font-size is BrowserUX’s CSS variable for its default font family and font size. */
+  --bux-font-body: var(--fontFamilyBody);
+  --bux-font-size: 1rem;
+
   /* Spacing in rem; suffixes represent pixels at a 16px root font size. */
   --spacing-4: 0.25rem;
   --spacing-8: 0.5rem;
@@ -29,4 +36,10 @@
   --colorThemePrimary: #1272e4;
   --colorBorder: #d7d7d7;
   --colorBorderHover: #9d9d9d;
+  color-scheme: light;
+}
+
+/* BrowserUX uses a 10px root; the app's rem scale assumes the browser default. */
+html {
+  font-size: 100%;
 }
