@@ -1,0 +1,13 @@
+:root {
+  --borderRadiusSmall: 4px;
+  --borderRadiusMedium: 6px;
+  --borderRadiusLarge: 8px;
+  --colorTextDefault: #535353;
+  --colorTextInverse: #fff;
+  --colorTextLink: #1272e4;
+  --colorBackgroundDefault: #fff;
+  --colorBackgroundShaded: #f1f1f1;
+  --colorThemePrimary: #1272e4;
+  --colorBorder: #d7d7d7;
+  --colorBorderHover: #9d9d9d;
+}
