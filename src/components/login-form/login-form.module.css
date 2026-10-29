@@ -1,0 +1,95 @@
+.login-form {
+  background-color: var(--colorBackgroundDefault);
+  border-radius: var(--borderRadiusLarge);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+  color: var(--colorTextDefault);
+  min-width: 0;
+  padding: var(--spacing-48) var(--spacing-16) var(--spacing-32);
+  width: min(100%, 35rem);
+}
+
+.login-form-title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 var(--spacing-32);
+}
+
+.login-form-fields {
+  display: grid;
+  gap: var(--spacing-16);
+}
+
+.login-form-submit {
+  background-color: var(--colorThemePrimary);
+  border: 0;
+  border-radius: var(--borderRadiusMedium);
+  color: var(--colorTextInverse);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: var(--spacing-16);
+  min-height: 3.25rem;
+  padding: var(--spacing-12) var(--spacing-24);
+  width: 100%;
+}
+
+.login-form-submit:focus-visible {
+  outline: 2px solid var(--colorThemePrimary);
+  outline-offset: 2px;
+}
+
+.login-form-submit:disabled {
+  opacity: 0.6;
+}
+
+.login-form-submit:hover:not(:disabled) {
+  background-color: #0d5ebd;
+}
+
+.login-form-options {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8) var(--spacing-16);
+  justify-content: space-between;
+}
+
+.login-form-forgot-password {
+  align-items: center;
+  color: var(--colorTextLink);
+  display: inline-flex;
+  font-weight: 600;
+  line-height: 1.5;
+  min-height: 2.75rem;
+  text-decoration: none;
+}
+
+.login-form-forgot-password:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.login-form-forgot-password:focus-visible {
+  border-radius: var(--borderRadiusSmall);
+  outline: 2px solid var(--colorThemePrimary);
+  outline-offset: 2px;
+}
+
+.login-form-footer {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: var(--spacing-52) 0 0;
+  text-align: center;
+}
+
+@media (width >= 75rem) {
+  .login-form {
+    padding: var(--spacing-48) var(--spacing-40) var(--spacing-40);
+  }
+
+  .login-form-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}

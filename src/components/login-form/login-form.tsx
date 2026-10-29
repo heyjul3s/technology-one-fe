@@ -6,9 +6,11 @@ import { Form } from '../form';
 import { TextField } from '../text-field';
 
 import styles from './login-form.module.css';
+import { Checkbox } from '../checkbox';
 
 const LoginFormSchema = z.object({
   password: z.string().min(8, 'At least 8 characters'),
+  rememberMe: z.boolean().optional(),
   username: z.email('Invalid email'),
 });
 
@@ -28,13 +30,26 @@ export function LoginForm() {
     <section className={styles['login-form']}>
       <h2 className={styles['login-form-title']}>Sign In</h2>
 
-      <Form methods={methods} onSubmit={handleLogin}>
+      <Form className={styles['login-form-fields']} methods={methods} onSubmit={handleLogin}>
         <TextField<LoginFormData> label="Username" name="username" type="text" />
         <TextField<LoginFormData> label="Password" name="password" type="password" />
-        <button type="submit">Log In</button>
+        <button
+          className={styles['login-form-submit']}
+          disabled={methods.formState.isSubmitting}
+          type="submit"
+        >
+          Sign In
+        </button>
+
+        <div className={styles['login-form-options']}>
+          <Checkbox label="Remember me" name="rememberMe" />
+          <a className={styles['login-form-forgot-password']} href="/">
+            Forgot Password
+          </a>
+        </div>
       </Form>
 
-      <p>Don’t already have an account? Register</p>
+      <p className={styles['login-form-footer']}>Don’t already have an account? Register</p>
     </section>
   );
 }
