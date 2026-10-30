@@ -10,9 +10,12 @@
 }
 
 .header-logo img {
+  /* this is the SVG logo asset width (Turtle-Cove-Logo.svg) */
+  --logo-width: 163px;
+
   display: block;
   height: auto;
-  width: 10.188rem;
+  width: var(--logo-width);
 }
 
 .header-logo:focus-visible {
