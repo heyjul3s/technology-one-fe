@@ -1,0 +1,74 @@
+.login-form-sso {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
+
+.login-form-sso-button {
+  --sso-button-min-width: 8rem;
+
+  align-items: center;
+  background-color: var(--colorBackgroundShaded);
+  border: 0;
+  border-radius: var(--borderRadiusMedium);
+  color: var(--colorTextDefault);
+  container-name: sso-button;
+  container-type: inline-size;
+  display: flex;
+  flex: 1 1 var(--sso-button-min-width);
+  flex-wrap: wrap;
+  font: inherit;
+  font-size: 1rem;
+  gap: var(--spacing-8);
+  justify-content: center;
+  line-height: 1.5;
+  min-height: 3.25rem;
+  min-width: 0;
+  padding: var(--spacing-8);
+}
+
+.login-form-sso-button > span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.login-form-sso-button img {
+  flex-shrink: 0;
+}
+
+.login-form-sso-button:hover {
+  background-color: var(--colorBorder);
+}
+
+.login-form-sso-button:focus-visible {
+  outline: 2px solid var(--colorThemePrimary);
+  outline-offset: 2px;
+}
+
+.login-form-sso-prefix-compact,
+.login-form-sso-prefix-wide {
+  display: none;
+}
+
+/* 560px card minus two 40px paddings leaves a 480px content area. */
+@container login-sso (width >= 30rem) {
+  .login-form-sso {
+    gap: var(--spacing-40);
+  }
+}
+
+@container sso-button (width >= 9.5rem) {
+  .login-form-sso-prefix-compact {
+    display: inline;
+  }
+}
+
+@container sso-button (width >= 12.5rem) {
+  .login-form-sso-prefix-compact {
+    display: none;
+  }
+
+  .login-form-sso-prefix-wide {
+    display: inline;
+  }
+}
