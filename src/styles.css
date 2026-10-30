@@ -1,6 +1,7 @@
 @import url('browserux.css');
 
 :root {
+  --sign-in-panel-max-width: 560px;
   --fontFamilyBody: 'Outfit', sans-serif;
   --fontFamilyDisplay: 'Bubblegum Sans', sans-serif;
 
@@ -42,4 +43,8 @@
 /* BrowserUX uses a 10px root; the app's rem scale assumes the browser default. */
 html {
   font-size: 100%;
+}
+
+main {
+  background: linear-gradient(to bottom, #005bd8, #00a3ff);
 }
