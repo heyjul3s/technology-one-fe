@@ -1,0 +1,53 @@
+.login-turtle-scene {
+  --illustration-size: 340px;
+
+  aspect-ratio: 1;
+  display: none;
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 100%;
+  place-self: end center;
+  position: relative;
+  width: var(--illustration-size);
+}
+
+.login-turtle-scene::before {
+  background: linear-gradient(
+    to bottom,
+    rgb(29 163 255 / 70%) 0 calc(100% - var(--illustration-ground-depth)),
+    #fff8ba calc(100% - var(--illustration-ground-depth)) 100%
+  );
+  border-radius: 50%;
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.login-turtle-scene-tree {
+  bottom: var(--illustration-ground-depth);
+  height: auto;
+  left: 0;
+  position: absolute;
+  width: 50%;
+}
+
+.login-turtle-scene-turtle {
+  bottom: calc(var(--illustration-ground-depth) - 8%);
+  height: auto;
+  position: absolute;
+  right: -9%;
+  width: 52%;
+}
+
+@media (width >= 75rem) {
+  .login-turtle-scene {
+    display: block;
+  }
+}
+
+/* The wide desktop reference increases the circle from 340px to 420px. */
+@media (width >= 100rem) {
+  .login-turtle-scene {
+    --illustration-size: 420px;
+  }
+}

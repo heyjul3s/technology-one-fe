@@ -7,7 +7,18 @@
   container-type: inline-size;
   min-width: 0;
   padding: var(--spacing-48) var(--spacing-16) var(--spacing-32);
+  position: relative;
   width: min(100%, var(--sign-in-panel-max-width));
+}
+
+.login-turtle {
+  height: auto;
+  pointer-events: none;
+  position: absolute;
+  right: var(--spacing-8);
+  top: 0;
+  transform: translateY(-55%) scaleX(-1);
+  width: 144px;
 }
 
 .login-title {
@@ -60,6 +71,10 @@
 }
 
 @media (width >= 75rem) {
+  .login-turtle {
+    display: none;
+  }
+
   .login {
     padding: var(--spacing-48) var(--spacing-40) var(--spacing-40);
   }

@@ -1,13 +1,13 @@
-import { Header, Login } from './components';
+import { Header, Login, LoginTurtleScene } from './components';
 
 import styles from './app.module.css';
 
 export function App() {
   return (
-    <main>
+    <div className={styles.app}>
       <Header />
 
-      <div className={styles['app-layout']}>
+      <main className={styles['app-layout']}>
         <div className={styles['app-intro']}>
           <h1 className={styles['app-intro-title']}>Welcome to Turtle Cove!</h1>
           <p>Sign in to access your personalised island of features!</p>
@@ -21,8 +21,12 @@ export function App() {
           <p className={styles['app-intro-tagline']}>Your adventure awaits – dive in!</p>
         </div>
 
-        <Login />
-      </div>
-    </main>
+        <div className={styles['app-login']}>
+          <Login />
+        </div>
+
+        <LoginTurtleScene />
+      </main>
+    </div>
   );
 }
