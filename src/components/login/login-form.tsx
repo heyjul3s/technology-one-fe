@@ -9,18 +9,24 @@ import { TextField } from '../text-field';
 import styles from './login-form.module.css';
 
 const LoginFormSchema = z.object({
+  // Assuming 8 chars min
   password: z.string().min(8, 'At least 8 characters'),
   rememberMe: z.boolean().optional(),
-  // NOTE: no meanigful details on exact format for username, length, etc.
-  // Running with min 1 char check
-  username: z.string().trim().min(1, 'Enter your username or email'),
+  username: z
+    .string()
+    .trim()
+    .min(1, 'Enter your username or email')
+    // Assuming no "@" for usernames and just a regular string
+    .refine((value) => !value.includes('@') || z.email().safeParse(value).success, {
+      message: 'Enter a valid email address',
+    }),
 });
 
 type LoginFormData = z.infer<typeof LoginFormSchema>;
 
 export function LoginForm() {
   const methods = useForm({
-    defaultValues: { password: '', username: '' },
+    defaultValues: { password: '', rememberMe: false, username: '' },
     resolver: zodResolver(LoginFormSchema),
   });
 
@@ -30,8 +36,20 @@ export function LoginForm() {
 
   return (
     <Form className={styles['login-form']} methods={methods} onSubmit={handleLogin}>
-      <TextField<LoginFormData> label="Username" name="username" type="text" />
-      <TextField<LoginFormData> label="Password" name="password" type="password" />
+      <TextField<LoginFormData>
+        autoCapitalize="none"
+        autoComplete="username"
+        label="Username"
+        name="username"
+        type="text"
+      />
+
+      <TextField<LoginFormData>
+        autoComplete="off"
+        label="Password"
+        name="password"
+        type="password"
+      />
 
       <button
         className={styles['login-form-submit']}
