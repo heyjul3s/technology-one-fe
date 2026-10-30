@@ -9,17 +9,9 @@ import { TextField } from '../text-field';
 import styles from './login-form.module.css';
 
 const LoginFormSchema = z.object({
-  // Assuming 8 chars min
-  password: z.string().min(8, 'At least 8 characters'),
+  password: z.string().min(1, 'Enter your password'),
   rememberMe: z.boolean().optional(),
-  username: z
-    .string()
-    .trim()
-    .min(1, 'Enter your username or email')
-    // Assuming no "@" for usernames and just a regular string
-    .refine((value) => !value.includes('@') || z.email().safeParse(value).success, {
-      message: 'Enter a valid email address',
-    }),
+  username: z.string().trim().min(1, 'Enter your username or email'),
 });
 
 type LoginFormData = z.infer<typeof LoginFormSchema>;
@@ -30,9 +22,7 @@ export function LoginForm() {
     resolver: zodResolver(LoginFormSchema),
   });
 
-  const handleLogin = (data: LoginFormData) => {
-    console.log(data);
-  };
+  const handleLogin = () => {};
 
   return (
     <Form className={styles['login-form']} methods={methods} onSubmit={handleLogin}>
@@ -45,7 +35,7 @@ export function LoginForm() {
       />
 
       <TextField<LoginFormData>
-        autoComplete="off"
+        autoComplete="current-password"
         label="Password"
         name="password"
         type="password"
