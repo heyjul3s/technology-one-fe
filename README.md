@@ -2,6 +2,25 @@
 
 React and TypeScript app built with Vite.
 
+## Scope
+
+The implementation covers the responsive sign-in interface and client-side validation.
+
+Authentication is outside the scope:
+
+- Sign-in does not call an API or create a session.
+- Google and Facebook buttons are presentational.
+- “Remember me” does not persist a session.
+- Registration and password recovery pages are not implemented.
+
+## Engineering decisions
+
+- **Kept the architecture small.** A single page does not need routing or global state management. Shared form controls provide consistency without introducing a full component library.
+- **Used React Hook Form with Zod.** Native, uncontrolled inputs avoid manual state wiring, while the schema keeps validation rules and inferred TypeScript types together.
+- **Used CSS Modules and shared variables.** Component styles remain isolated, while common spacing, colours, and typography can be adjusted centrally.
+- **Handled responsiveness in CSS.** Layout changes do not require JavaScript. Smaller screens prioritise the form; wider screens include supporting copy and illustrations.
+- **Added focused interaction tests.** Tests cover validation, keyboard navigation, and focus after invalid submission—the behaviours most likely to affect form usability.
+
 ## Setup
 
 Install [nvm](https://github.com/nvm-sh/nvm), then run from the repository root:
