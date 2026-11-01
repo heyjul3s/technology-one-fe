@@ -8,6 +8,7 @@
     "browserlist": "browserslist",
     "browserslist:lint": "browserslist-lint",
     "build": "tsc && vite build",
+    "test": "vitest",
     "lint": "pnpm run lint:css && pnpm run lint:es && pnpm run lint:markup && pnpm run lint:prettier && pnpm run lint:types",
     "lint:fix": "pnpm run lint:css-fix && pnpm run lint:es-fix && pnpm run lint:markup-fix && pnpm run lint:prettier-fix",
     "lint:css": "stylelint src/**/*.{module.css,css}",
