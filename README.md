@@ -37,11 +37,46 @@ corepack pnpm install
 Use `corepack pnpm` for project commands to avoid picking up a different standalone
 pnpm installation. Dependency installation also sets up the Husky Git hooks.
 
-## Run and build
+## Run, test, and build
 
 ```sh
 corepack pnpm dev       # Start the development server; open the URL it prints
+corepack pnpm test -- --run
 corepack pnpm build     # Type-check and build for production into dist/
+```
+
+The project is pinned to Node.js 26 via `.nvmrc` and the repo package manager is pnpm 12.15.0 via `package.json`.
+
+## Project structure
+
+```text
+.
+├── README.md
+├── .nvmrc
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── tsconfig.json
+├── vite.config.ts
+├── vitest.config.ts
+├── vitest.setup.ts
+├── src/
+│   ├── app.tsx
+│   ├── app.module.css
+│   ├── styles.css
+│   ├── index.html
+│   ├── main.tsx
+│   ├── assets/
+│   └── components/
+│       ├── index.tsx
+│       ├── checkbox/
+│       ├── form/
+│       ├── header/
+│       ├── login/
+│       ├── login-turtle-scene/
+│       └── text-field/
+└── test-reports/
+    └── junit.xml
 ```
 
 ## Scripts
@@ -66,6 +101,7 @@ Run scripts with `corepack pnpm run <script>`.
 | `lint:prettier-fix` | Format files with Prettier.                                     |
 | `lint:types`        | Check TypeScript without emitting files.                        |
 | `prepare`           | Set up Husky Git hooks; runs automatically during installation. |
+| `test`              | Run tests with Vitest.                                          |
 
 ## Dependencies
 
