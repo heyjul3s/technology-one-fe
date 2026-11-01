@@ -5,15 +5,6 @@ import process from 'node:process';
 
 import type { Configuration } from 'lint-staged';
 
-const ignoredFiles = new Set(['src/route-tree.gen.ts', 'plopfile.js']);
-
-function filterIgnoredFiles(filenames: readonly string[]) {
-  return filenames.filter((filename) => {
-    const projectPath = relative(process.cwd(), filename).split(sep).join('/');
-    return !ignoredFiles.has(projectPath) && !projectPath.startsWith('plop-templates/');
-  });
-}
-
 function isSourceFile(filename: string) {
   return relative(process.cwd(), filename).split(sep).join('/').startsWith('src/');
 }
@@ -28,20 +19,18 @@ const config: Configuration = {
   },
 
   '**/*.{ts,tsx,js,jsx}': (filenames) => {
-    const matchedFiles = filterIgnoredFiles(filenames);
-
-    if (matchedFiles.length === 0) {
+    if (filenames.length === 0) {
       return [];
     }
 
-    const files = matchedFiles.join(' ');
+    const files = filenames.join(' ');
 
     const tasks = [
       `corepack pnpm exec oxlint --fix ${files}`,
       `corepack pnpm exec prettier --write ${files}`,
     ];
 
-    const sourceFiles = matchedFiles.filter(isSourceFile);
+    const sourceFiles = filenames.filter(isSourceFile);
     const markupFiles = sourceFiles.filter((filename) => /\.[jt]sx$/.test(filename));
 
     if (markupFiles.length > 0) {
@@ -67,9 +56,7 @@ const config: Configuration = {
   },
 
   'src/**/*.{ts,tsx}': (filenames) => {
-    const files = filterIgnoredFiles(filenames);
-
-    if (files.length === 0) {
+    if (filenames.length === 0) {
       return [];
     }
 
@@ -77,13 +64,11 @@ const config: Configuration = {
   },
 
   'src/**/*.html': (filenames) => {
-    const files = filterIgnoredFiles(filenames);
-
-    if (files.length === 0) {
+    if (filenames.length === 0) {
       return [];
     }
 
-    return `corepack pnpm exec markuplint ${files.join(' ')}`;
+    return `corepack pnpm exec markuplint ${filenames.join(' ')}`;
   },
 };
 
